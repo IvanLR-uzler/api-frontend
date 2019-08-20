@@ -15,7 +15,7 @@ mutation addStudent($input: StudentInput){
       estilo_aprendizaje
     }
   }`;
-export const AddStudentMutation = ({children})=>{
+export const AddStudentMutation = ({children})=> {
   return <Mutation mutation={ADDSTUDENT} >
   {children}
   </Mutation>
@@ -24,6 +24,7 @@ export const AddStudentMutation = ({children})=>{
 export const UPDATESTUDENT = gql`
 mutation updateStudent($input: StudentInput!) {
   updateStudent(input: $input) {
+    _id
     nombres
     apellido_paterno
     apellido_materno
@@ -36,7 +37,7 @@ mutation updateStudent($input: StudentInput!) {
 }
 `
 export const UpdateStudentMutation = ({children})=>{
-  return <Mutation mutation={UPDATESTUDENT} >
+  return <Mutation mutation={UPDATESTUDENT}  >
   {children}
   </Mutation>
 }

@@ -1,21 +1,26 @@
 import React, {Fragment}from 'react';
 import { useInputValue } from '../../hooks/InputValue'
 
-export const StudentRegistrer = ({disabled, error,onSubmit, title}) => {
+export const UpdateStudent = ({disabled, error,onSubmit, title,student}) => {
 //estado inicial
-const nombres = useInputValue('');
-const apellido_paterno = useInputValue('');
-const apellido_materno = useInputValue('');
-const numero_control = useInputValue('');
-const telefono = useInputValue(''); 
-const carrera = useInputValue('');
-const correo_electronico = useInputValue('');
-const estilo_aprendizaje  = useInputValue('');
+const _id = useInputValue(student._id);
+const nombres = useInputValue(student.nombres);
+const apellido_paterno = useInputValue(student.apellido_paterno);
+const apellido_materno = useInputValue(student.apellido_materno);
+const numero_control = useInputValue(student.numero_control);
+const telefono = useInputValue(student.telefono); 
+const carrera = useInputValue(student.carrera);
+const correo_electronico = useInputValue(student.correo_electronico);
+const estilo_aprendizaje  = useInputValue(student.estilo_aprendizaje);
 
 //control
 const handleSubmit = e =>{
     e.preventDefault();
-    onSubmit({ 
+    onSubmit(
+        // e=>
+        // this.setState({
+        // ...this.state.student, //actualiza el dato en el hook en tiempo real
+        {_id: _id.value,
         nombres: nombres.value,
         apellido_paterno: apellido_paterno.value,
         apellido_materno: apellido_materno.value,
@@ -23,12 +28,13 @@ const handleSubmit = e =>{
         telefono: telefono.value,
         carrera: carrera.value,
         correo_electronico: correo_electronico.value,
-        estilo_aprendizaje: estilo_aprendizaje.value
-    })
-    
+        estilo_aprendizaje: estilo_aprendizaje.value}
+
+    )
+
 }
+return <Fragment>  
     
-return <Fragment>   
             <h2 className="text-center">{title} </h2>
                 <div className="row justify-content-center">
                     <form className="col-xl-10 m-3" onSubmit={handleSubmit} disabled={disabled} >
@@ -93,6 +99,7 @@ return <Fragment>
                     </form>
                     {error && <span>{error}</span>}
                 </div>
+
            </Fragment>
 
 

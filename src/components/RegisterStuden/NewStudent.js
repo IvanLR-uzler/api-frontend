@@ -1,14 +1,14 @@
 import React, {Fragment} from 'react'
-import { AddStudentMutation } from '../../mutations';   
+import { AddStudentMutation } from '../../mutations/Mutations';   
 import {StudentRegistrer} from './FormRegistrer'
 
 
 const NewStudent = ()=> {
 
     return  <Fragment>
-               <AddStudentMutation> 
+               <AddStudentMutation > 
                    {
-                       (register, {data,loading, error,})=>{
+                       (addStudent, {loading, error,})=>{
     
                            const handleSubmit = ({nombres,
                             apellido_paterno,
@@ -28,7 +28,7 @@ const NewStudent = ()=> {
                                 correo_electronico,
                                 estilo_aprendizaje }
                                 const variables = { input }
-                                register({ variables }).then((data) => {
+                                addStudent({ variables }).then((data) => {
                                     console.log('SE REGISTRARON LOS DATOS',data);
                                 }).catch((e) => {
                                     console.log('A OCURRIDO UN ERROR AL REGISTRAR LOS DATOS: ',e);
@@ -37,7 +37,11 @@ const NewStudent = ()=> {
                            }
                            const errorMSG = error && 'A OCURRIDO UN ERROR AL REGISTRAR LOS DATOS'
                            
-                           return <StudentRegistrer error={errorMSG} disabled={loading} title='Registro de Estudiantes' onSubmit={handleSubmit} />
+                           return <StudentRegistrer 
+                           error={errorMSG} 
+                           disabled={loading} 
+                           title='Registro de Estudiantxxs' 
+                           onSubmit={handleSubmit} />
                             
                        }
                    }

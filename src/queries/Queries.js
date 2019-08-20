@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
 export const GETSTUDENTS_QUERY = gql `{
-    
  getStudents{
+   _id
    nombres
    apellido_paterno
    apellido_materno
@@ -81,20 +81,20 @@ export const GETSTUDENTS_QUERY = gql `{
 
  }
     
-}`;
+}`
 
 export const GETSTUDENT_QUERY = gql`
-
 query getStudent($_id: ID!) {
   getStudent(_id:$_id){
-      nombres
-      apellido_paterno
-      apellido_materno
-      numero_control
-      telefono
-      carrera
-      correo_electronico
-      estilo_aprendizaje
+    _id
+    nombres
+    apellido_paterno
+    apellido_materno
+    numero_control
+    telefono
+    carrera
+    correo_electronico
+    estilo_aprendizaje
   }
 }
 `

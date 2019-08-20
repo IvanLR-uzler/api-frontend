@@ -5,9 +5,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 //Components
 import Header from './components/Header'
-import Prueba from './components/Prueba'
+//import Prueba from './components/Prueba'
 import Students from './components/Students'
-//import  EditStudent from './components/UpdateStudent/EditStudent'
+import  EditStudent from './components/UpdateStudent/EditStudent'
 import NewStudent from './components/RegisterStuden/NewStudent'
 
 
@@ -30,9 +30,8 @@ function App() {
           <div className="container-fluid">
             <Switch>
               <Route exact path="/" component={Students}/>
-              {/* <Route exact path="/student/edit/:_id" component={EditStudent}/> */}
+              <Route exact path="/student/edit/:_id" component={EditStudent}/>
               <Route exact path="/student/new" component={NewStudent}/>
-              <Route exact path="/prueba" component={Prueba}/>
             </Switch>
           </div>
         </Fragment>
@@ -40,5 +39,6 @@ function App() {
     </ApolloProvider>
   );
 }
+//<Route exact path="/prueba" component={Prueba}/>
 
 export default App;
